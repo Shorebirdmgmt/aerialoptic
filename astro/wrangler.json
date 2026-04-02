@@ -1,0 +1,14 @@
+{
+	"name": "aerialoptic",
+	"compatibility_date": "2026-04-02",
+	"compatibility_flags": [
+		"nodejs_compat"
+	],
+	"workers_dev": false,
+	"observability": {
+		"logs": {
+			"enabled": true,
+			"invocation_logs": true
+		}
+	}
+}

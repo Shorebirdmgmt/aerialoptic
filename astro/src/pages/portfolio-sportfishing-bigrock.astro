@@ -1,0 +1,62 @@
+---
+import Base from '../layouts/Base.astro';
+import { cfImg, cfSrcset } from '../lib/img';
+---
+<Base title="Big Rock Tournament — Sportfishing — Aerial Optic" description="On-site photography of the Big Rock Blue Marlin Tournament — weigh-ins, fleet shots, and classic sportfishing yachts." currentPage="portfolio" heroPreload={cfSrcset('images/home/slider-2.jpg')} ogImage={cfImg('images/home/slider-2.jpg', { w: 1200, q: 80 })}>
+		<div class="top-single-bkg" style="height: 50vh; position: relative; overflow: hidden;">
+			<div class="topsingleimg">
+				<img src={cfImg('images/home/slider-2.jpg', { w: 1920 })} srcset={cfSrcset('images/home/slider-2.jpg')} sizes="100vw" alt="Big Rock Tournament" width="1920" height="1080" loading="eager" fetchpriority="high" decoding="async">
+			</div>
+			<div class="inner-desc">
+				<div class="container">
+					<h1 class="single-post-title display-2">Big Rock Tournament</h1>
+					<span class="post-subtitle">Sportfishing</span>
+				</div>
+			</div>
+		</div>
+		<div id="wrap-content" class="page-content custom-page-template">
+			<div class="section-holder" style="padding: 60px 0;">
+				<div class="container">
+					<a href="/portfolio-sportfishing" class="read-more" style="margin-bottom: 40px; display: inline-block;"><i class="fa fa-chevron-left" style="margin-right: 8px;"></i> Back to Sportfishing</a>
+					<div style="margin-bottom: 50px;">
+						<div class="el-smalltitle">Sportfishing</div>
+						<h2 class="display-4 margin-b30">Big Rock Tournament</h2>
+						<p style="max-width: 700px;">On-site coverage of the Big Rock Blue Marlin Tournament — weigh-ins, fleet shots, and classic sportfishing yachts.</p>
+					</div>
+					<div class="row">
+						<div class="col-lg-4 col-md-6" style="margin-bottom: 30px;">
+							<div class="ao-gallery-item">
+								<img src={cfImg('images/portfolio/featured-images/sf-bigrock-1.jpg', { w: 640 })} srcset={cfSrcset('images/portfolio/featured-images/sf-bigrock-1.jpg', { widths: [320, 480, 640] })} alt="Blue marlin weigh-in" sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw" width="640" height="427" loading="lazy" decoding="async" style="width: 100%; display: block;">
+							</div>
+							<p class="ao-gallery-caption" style="margin-top: 10px; font-size: 14px; color: #858585;">Blue marlin weigh-in at the dock</p>
+						</div>
+						<div class="col-lg-4 col-md-6" style="margin-bottom: 30px;">
+							<div class="ao-gallery-item">
+								<img src={cfImg('images/portfolio/featured-images/sf-bigrock-2.jpg', { w: 640 })} srcset={cfSrcset('images/portfolio/featured-images/sf-bigrock-2.jpg', { widths: [320, 480, 640] })} alt="Marlin hooked and fighting" sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw" width="640" height="427" loading="lazy" decoding="async" style="width: 100%; display: block;">
+							</div>
+							<p class="ao-gallery-caption" style="margin-top: 10px; font-size: 14px; color: #858585;">Marlin hooked and fighting</p>
+						</div>
+						<div class="col-lg-4 col-md-6" style="margin-bottom: 30px;">
+							<div class="ao-gallery-item">
+								<img src={cfImg('images/portfolio/featured-images/sf-bigrock-3.jpg', { w: 640 })} srcset={cfSrcset('images/portfolio/featured-images/sf-bigrock-3.jpg', { widths: [320, 480, 640] })} alt="Wychmere classic woodwork" sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw" width="640" height="427" loading="lazy" decoding="async" style="width: 100%; display: block;">
+							</div>
+							<p class="ao-gallery-caption" style="margin-top: 10px; font-size: 14px; color: #858585;">Wychmere — classic woodwork detail</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="section-holder section-info padding-tb100 section-nomargin" style="background: var(--primary-color);">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="padding-lr200 alignc">
+								<h2 class="display-4 margin-b30" style="color: #fff;">Like what you see?</h2>
+								<p style="color: rgba(255,255,255,0.8);">Let's capture your next project from a whole new perspective.</p>
+								<a href="/contact" class="read-more white-btn margin-t30">Book a Session</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</Base>

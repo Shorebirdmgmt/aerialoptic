@@ -1,0 +1,125 @@
+---
+import Base from '../layouts/Base.astro';
+import { cfImg, cfSrcset } from '../lib/img';
+---
+<Base title="Portfolio — Aerial Optic" description="Browse our aerial photography portfolio — powerboats, sportfishing, real estate, construction, events, and local businesses." currentPage="portfolio" heroPreload={cfSrcset('images/home/slider-1.jpg')} ogImage={cfImg('images/home/slider-1.jpg', { w: 1200, q: 80 })}>
+		<!-- /HEADER -->
+		<!-- PAGE HERO -->
+		<div class="top-single-bkg" style="height: 50vh; position: relative; overflow: hidden;">
+			<div class="topsingleimg">
+				<img src={cfImg('images/home/slider-1.jpg', { w: 1920 })} srcset={cfSrcset('images/home/slider-1.jpg')} sizes="100vw" alt="Our Portfolio" width="1920" height="1080" loading="eager" fetchpriority="high" decoding="async">
+			</div>
+			<div class="inner-desc">
+				<div class="container">
+					<h1 class="single-post-title display-2">Our Portfolio</h1>
+					<span class="post-subtitle">A selection of our aerial photography and videography work</span>
+				</div>
+			</div>
+		</div>
+		<!-- /PAGE HERO -->
+		<!-- WRAP CONTENT -->
+		<div id="wrap-content" class="page-content custom-page-template">
+			<!-- CATEGORY CARDS -->
+			<div class="section-holder" style="padding: 80px 0;">
+				<div class="container">
+					<div class="alignc" style="margin-bottom: 60px;">
+						<div class="el-smalltitle sr">Our work</div>
+						<h2 class="display-4 margin-b30 sr sr-delay-1">Browse by category</h2>
+						<p class="sr sr-delay-2">Select a category to explore our aerial photography portfolio</p>
+					</div>
+					<div class="row">
+						<!-- Powerboat Photos -->
+						<div class="col-lg-4 col-md-6 sr sr-delay-1" style="margin-bottom: 30px;">
+							<a href="/portfolio-powerboats" style="display: block; text-decoration: none; color: inherit;">
+								<div class="portfolio-card" style="position: relative; overflow: hidden;">
+									<img src={cfImg('images/portfolio/featured-images/pb-pertye-1.jpg', { w: 640 })} alt="Powerboats" width="640" height="480" loading="lazy" decoding="async" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block;">
+									<div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 25px; text-align: center; background: linear-gradient(transparent, rgba(0,0,0,0.75));">
+										<h3 style="color: #fff; margin: 0 0 5px; font-family: var(--headings-font); font-size: 1.5rem;">Powerboats</h3>
+										<span style="color: rgba(255,255,255,0.8); font-size: 14px;">High-performance boats on the Chesapeake</span>
+									</div>
+								</div>
+							</a>
+						</div>
+						<!-- Sportfishing Photos -->
+						<div class="col-lg-4 col-md-6 sr sr-delay-2" style="margin-bottom: 30px;">
+							<a href="/portfolio-sportfishing" style="display: block; text-decoration: none; color: inherit;">
+								<div class="portfolio-card" style="position: relative; overflow: hidden;">
+									<img src={cfImg('images/portfolio/featured-images/sf-wmo-1.jpg', { w: 640 })} alt="Sportfishing" width="640" height="480" loading="lazy" decoding="async" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block;">
+									<div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 25px; text-align: center; background: linear-gradient(transparent, rgba(0,0,0,0.75));">
+										<h3 style="color: #fff; margin: 0 0 5px; font-family: var(--headings-font); font-size: 1.5rem;">Sportfishing</h3>
+										<span style="color: rgba(255,255,255,0.8); font-size: 14px;">Offshore action and tournament coverage</span>
+									</div>
+								</div>
+							</a>
+						</div>
+						<!-- Local Businesses -->
+						<div class="col-lg-4 col-md-6 sr sr-delay-3" style="margin-bottom: 30px;">
+							<a href="/portfolio-local-business" style="display: block; text-decoration: none; color: inherit;">
+								<div class="portfolio-card" style="position: relative; overflow: hidden;">
+									<img src={cfImg('images/portfolio/featured-images/biz-nicks-1.jpg', { w: 640 })} alt="Local Businesses" width="640" height="480" loading="lazy" decoding="async" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block;">
+									<div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 25px; text-align: center; background: linear-gradient(transparent, rgba(0,0,0,0.75));">
+										<h3 style="color: #fff; margin: 0 0 5px; font-family: var(--headings-font); font-size: 1.5rem;">Local Businesses</h3>
+										<span style="color: rgba(255,255,255,0.8); font-size: 14px;">Aerial views that put local brands on the map</span>
+									</div>
+								</div>
+							</a>
+						</div>
+						<!-- Construction -->
+						<div class="col-lg-4 col-md-6 sr sr-delay-4" style="margin-bottom: 30px;">
+							<a href="/portfolio-construction" style="display: block; text-decoration: none; color: inherit;">
+								<div class="portfolio-card" style="position: relative; overflow: hidden;">
+									<img src={cfImg('images/portfolio/featured-images/con-crane-1.jpg', { w: 640 })} alt="Construction" width="640" height="480" loading="lazy" decoding="async" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block;">
+									<div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 25px; text-align: center; background: linear-gradient(transparent, rgba(0,0,0,0.75));">
+										<h3 style="color: #fff; margin: 0 0 5px; font-family: var(--headings-font); font-size: 1.5rem;">Construction</h3>
+										<span style="color: rgba(255,255,255,0.8); font-size: 14px;">Documenting progress from above</span>
+									</div>
+								</div>
+							</a>
+						</div>
+						<!-- Real Estate -->
+						<div class="col-lg-4 col-md-6 sr sr-delay-5" style="margin-bottom: 30px;">
+							<a href="/portfolio-realestate" style="display: block; text-decoration: none; color: inherit;">
+								<div class="portfolio-card" style="position: relative; overflow: hidden;">
+									<img src={cfImg('images/portfolio/featured-images/re-waterfront-1.jpg', { w: 640 })} alt="Real Estate" width="640" height="480" loading="lazy" decoding="async" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block;">
+									<div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 25px; text-align: center; background: linear-gradient(transparent, rgba(0,0,0,0.75));">
+										<h3 style="color: #fff; margin: 0 0 5px; font-family: var(--headings-font); font-size: 1.5rem;">Real Estate</h3>
+										<span style="color: rgba(255,255,255,0.8); font-size: 14px;">Stunning property aerials that sell</span>
+									</div>
+								</div>
+							</a>
+						</div>
+						<!-- Events -->
+						<div class="col-lg-4 col-md-6 sr sr-delay-6" style="margin-bottom: 30px;">
+							<a href="/portfolio-events" style="display: block; text-decoration: none; color: inherit;">
+								<div class="portfolio-card" style="position: relative; overflow: hidden;">
+									<img src={cfImg('images/portfolio/featured-images/ev-carshow-1.jpg', { w: 640 })} alt="Events" width="640" height="480" loading="lazy" decoding="async" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block;">
+									<div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 25px; text-align: center; background: linear-gradient(transparent, rgba(0,0,0,0.75));">
+										<h3 style="color: #fff; margin: 0 0 5px; font-family: var(--headings-font); font-size: 1.5rem;">Events</h3>
+										<span style="color: rgba(255,255,255,0.8); font-size: 14px;">Car shows, boat rallies, and community gatherings</span>
+									</div>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /CATEGORY CARDS -->
+			<!-- CTA SECTION -->
+			<div class="section-holder section-info padding-tb100 section-nomargin" style="background: var(--primary-color);">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="padding-lr200 alignc">
+								<h2 class="display-4 margin-b30" style="color: #fff;">Like what you see?</h2>
+								<p style="color: rgba(255,255,255,0.8);">Let's capture your next project from a whole new perspective.</p>
+								<a href="/contact" class="read-more white-btn margin-t30">Book a Session</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /CTA SECTION -->
+		</div>
+		<!-- /WRAP CONTENT -->
+		<!-- FOOTER -->
+</Base>

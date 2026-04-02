@@ -1,0 +1,148 @@
+---
+import Base from '../layouts/Base.astro';
+import { cfImg, cfSrcset } from '../lib/img';
+---
+<Base title="About — Aerial Optic" description="Learn about Aerial Optic — FAA Part 107 certified drone photography and videography based in Kingsville, Maryland." currentPage="about" heroPreload={cfSrcset('images/home/hero-about.jpg')} ogImage={cfImg('images/home/hero-about.jpg', { w: 1200, q: 80 })}>
+		<!-- /HEADER -->
+		<!-- PAGE HERO -->
+		<div class="top-single-bkg hero-dark" style="height: 50vh; position: relative; overflow: hidden;">
+			<div class="topsingleimg">
+				<img src={cfImg('images/home/hero-about.jpg', { w: 1920 })} srcset={cfSrcset('images/home/hero-about.jpg')} sizes="100vw" alt="About Aerial Optic" width="1920" height="1080" loading="eager" fetchpriority="high" decoding="async" style="position: relative !important; object-position: center center !important;">
+			</div>
+			<div class="inner-desc">
+				<div class="container">
+					<h1 class="single-post-title display-2">About Aerial Optic</h1>
+					<span class="post-subtitle">Eyes from the Skies</span>
+				</div>
+			</div>
+		</div>
+		<!-- /PAGE HERO -->
+		<!-- WRAP CONTENT -->
+		<div id="wrap-content" class="page-content custom-page-template">
+			<!-- STORY SECTION -->
+			<div class="section-holder" style="padding: 80px 0;">
+				<div class="container">
+					<div class="row align-items-center">
+						<div class="col-lg-6">
+							<img class="img-fluid radius10 sr" src={cfImg('images/home/home2-img1.jpg', { w: 800 })} alt="Bradley Baxter" width="800" height="600" loading="lazy" decoding="async">
+						</div>
+						<div class="col-lg-6">
+							<div class="el-smalltitle sr">Our Story</div>
+							<h2 class="display-4 margin-b30 sr sr-delay-1">Meet Bradley Baxter</h2>
+							<p class="sr sr-delay-2">I'm Bradley Baxter, a young local entrepreneur, FAA Part 107 certified drone pilot, and the owner of Aerial Optic based in Kingsville, Maryland.</p>
+							<p class="sr sr-delay-2">I'm passionate about capturing high-quality aerial photo and video. Whether it's promoting local businesses, chasing sportfishing boats offshore, covering real estate, construction progress, or events — I love helping people show off what they do from a whole new perspective.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /STORY SECTION -->
+			<!-- SERVICES SECTION -->
+			<div class="section-holder" style="padding: 80px 0; background: #fff;">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12 alignc" style="margin-bottom: 50px;">
+							<div class="el-smalltitle sr">What We Do</div>
+							<h2 class="display-4 margin-b30 sr sr-delay-1">Our Services</h2>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-4 col-md-6 sr sr-delay-1" style="margin-bottom: 30px;">
+							<div style="text-align: center; padding: 40px 30px;">
+								<i class="fas fa-ship" style="font-size: 40px; color: var(--primary-color); margin-bottom: 20px; display: block;"></i>
+								<h5 style="margin-bottom: 15px;">Marine Photography</h5>
+								<p>Cinematic aerial and on-the-water coverage of sportfishing trips, boat shows, tournaments, and yacht photography.</p>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-6 sr sr-delay-2" style="margin-bottom: 30px;">
+							<div style="text-align: center; padding: 40px 30px;">
+								<i class="fas fa-home" style="font-size: 40px; color: var(--primary-color); margin-bottom: 20px; display: block;"></i>
+								<h5 style="margin-bottom: 15px;">Real Estate Aerial</h5>
+								<p>Stunning aerial photos and video tours that showcase properties from above, helping listings stand out and sell faster.</p>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-6 sr sr-delay-3" style="margin-bottom: 30px;">
+							<div style="text-align: center; padding: 40px 30px;">
+								<i class="fas fa-hard-hat" style="font-size: 40px; color: var(--primary-color); margin-bottom: 20px; display: block;"></i>
+								<h5 style="margin-bottom: 15px;">Construction Progress</h5>
+								<p>Regular aerial documentation of construction sites to track progress, create reports, and provide stakeholders with visual updates.</p>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-6 sr sr-delay-4" style="margin-bottom: 30px;">
+							<div style="text-align: center; padding: 40px 30px;">
+								<i class="fas fa-calendar" style="font-size: 40px; color: var(--primary-color); margin-bottom: 20px; display: block;"></i>
+								<h5 style="margin-bottom: 15px;">Event Coverage</h5>
+								<p>Dynamic aerial photography and videography for festivals, tournaments, corporate events, and special occasions.</p>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-6 sr sr-delay-5" style="margin-bottom: 30px;">
+							<div style="text-align: center; padding: 40px 30px;">
+								<i class="fas fa-building" style="font-size: 40px; color: var(--primary-color); margin-bottom: 20px; display: block;"></i>
+								<h5 style="margin-bottom: 15px;">Commercial / Business</h5>
+								<p>Professional aerial content for local businesses, marketing campaigns, social media, and brand storytelling.</p>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-6 sr sr-delay-6" style="margin-bottom: 30px;">
+							<div style="text-align: center; padding: 40px 30px;">
+								<i class="fas fa-leaf" style="font-size: 40px; color: var(--primary-color); margin-bottom: 20px; display: block;"></i>
+								<h5 style="margin-bottom: 15px;">Agriculture</h5>
+								<p>Aerial surveys and imaging for farms, vineyards, and agricultural operations to monitor crops and land conditions.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /SERVICES SECTION -->
+			<!-- VALUES SECTION -->
+			<div class="section-holder" style="padding: 80px 0; background: #f5f7f6;">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12 alignc" style="margin-bottom: 50px;">
+							<div class="el-smalltitle sr">Why Choose Us</div>
+							<h2 class="display-4 margin-b30 sr sr-delay-1">What Sets Us Apart</h2>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-4 col-md-6 sr sr-delay-1" style="margin-bottom: 30px;">
+							<div style="text-align: center; padding: 40px 30px;">
+								<i class="fas fa-certificate" style="font-size: 40px; color: var(--primary-color); margin-bottom: 20px; display: block;"></i>
+								<h5 style="margin-bottom: 15px;">FAA Certified</h5>
+								<p>Fully licensed under FAA Part 107 regulations. We operate legally, safely, and with full insurance for every flight.</p>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-6 sr sr-delay-2" style="margin-bottom: 30px;">
+							<div style="text-align: center; padding: 40px 30px;">
+								<i class="fas fa-bolt" style="font-size: 40px; color: var(--primary-color); margin-bottom: 20px; display: block;"></i>
+								<h5 style="margin-bottom: 15px;">Fast Turnaround</h5>
+								<p>We deliver edited photos and video quickly so you can put your aerial content to work without delay.</p>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-6 sr sr-delay-3" style="margin-bottom: 30px;">
+							<div style="text-align: center; padding: 40px 30px;">
+								<i class="fas fa-film" style="font-size: 40px; color: var(--primary-color); margin-bottom: 20px; display: block;"></i>
+								<h5 style="margin-bottom: 15px;">Cinematic Quality</h5>
+								<p>Professional-grade equipment and expert editing ensure every shot looks polished, cinematic, and ready for any platform.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /VALUES SECTION -->
+			<!-- CTA SECTION -->
+			<div class="section-holder section-info padding-tb100 section-nomargin" style="background: var(--primary-color);">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="padding-lr200 alignc">
+								<h2 class="display-4 margin-b30 sr" style="color: #fff;">Ready to see your world from above?</h2>
+								<p class="sr sr-delay-1" style="color: rgba(255,255,255,0.8);">Let's capture your next project from a whole new perspective.</p>
+								<a href="/contact" class="read-more white-btn margin-t30 sr sr-delay-2">Book a Session</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /CTA SECTION -->
+		</div>
+		<!-- /WRAP CONTENT -->
+		<!-- FOOTER -->
+</Base>

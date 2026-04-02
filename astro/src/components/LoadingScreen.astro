@@ -1,0 +1,165 @@
+---
+interface Props {
+  logoSrc: string;
+  brandName: string;
+  variant?: 'spring' | 'ease' | 'elegant';
+}
+
+const { logoSrc, brandName, variant = 'ease' } = Astro.props;
+---
+
+<div id="loading-screen" class="loading-screen" data-variant={variant}>
+  <div class="loading-content">
+    <img
+      src={logoSrc}
+      alt={brandName}
+      class="loading-logo"
+      width="320"
+      height="257"
+    />
+    <div class="loading-bar-track">
+      <div class="loading-bar-fill"></div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .loading-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background: #0a0a0a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    clip-path: circle(100% at 50% 50%);
+    transition: none;
+  }
+
+  .loading-screen.exit {
+    pointer-events: none;
+  }
+
+  .loading-screen.hidden {
+    display: none;
+  }
+
+  .loading-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .loading-logo {
+    max-width: 70vw;
+    height: auto;
+    will-change: transform, opacity;
+  }
+
+  .loading-bar-track {
+    width: 160px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+    will-change: transform, opacity;
+  }
+
+  .loading-bar-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 40%;
+    background: #147170;
+    border-radius: 2px;
+  }
+
+  /* ===== EASE VARIANT ===== */
+  .loading-screen[data-variant="ease"] .loading-logo {
+    animation: ease-logo-in 0.35s cubic-bezier(0.25, 0.1, 0.25, 1) 0.05s both;
+  }
+  .loading-screen[data-variant="ease"] .loading-bar-track {
+    animation: ease-bar-in 0.35s cubic-bezier(0.25, 0.1, 0.25, 1) 0.12s both;
+  }
+  .loading-screen[data-variant="ease"] .loading-bar-fill {
+    animation: loading-slide 0.8s ease-in-out infinite 0.2s;
+  }
+  .loading-screen[data-variant="ease"].exit .loading-content {
+    animation: ease-content-exit 0.25s ease-in-out forwards;
+  }
+  .loading-screen[data-variant="ease"].exit {
+    animation: ease-overlay-exit 0.35s ease-in-out 0.15s forwards;
+  }
+
+  @keyframes ease-logo-in {
+    from { transform: translateX(-120px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  @keyframes ease-bar-in {
+    from { transform: translateX(120px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  @keyframes ease-content-exit {
+    to { opacity: 0; transform: translateY(-30px); }
+  }
+  @keyframes ease-overlay-exit {
+    to { clip-path: circle(0% at 50% 50%); }
+  }
+
+  @keyframes loading-slide {
+    0% { transform: translateX(-100%); }
+    50% { transform: translateX(250%); }
+    100% { transform: translateX(-100%); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .loading-screen { display: none !important; }
+  }
+</style>
+
+<script is:inline>
+  (function() {
+    var screen = document.getElementById('loading-screen');
+    if (!screen) return;
+
+    var sessionKey = 'loading-screen-shown';
+    if (sessionStorage.getItem(sessionKey)) {
+      screen.classList.add('hidden');
+      document.body.removeAttribute('data-loading');
+      return;
+    }
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      screen.classList.add('hidden');
+      document.body.removeAttribute('data-loading');
+      window.dispatchEvent(new CustomEvent('app:loaded'));
+      return;
+    }
+
+    sessionStorage.setItem(sessionKey, 'true');
+
+    setTimeout(function() {
+      screen.classList.add('exit');
+
+      screen.addEventListener('animationend', function handler(e) {
+        if (e.target === screen) {
+          screen.classList.add('hidden');
+          document.body.removeAttribute('data-loading');
+          window.dispatchEvent(new CustomEvent('app:loaded'));
+          screen.removeEventListener('animationend', handler);
+        }
+      });
+
+      setTimeout(function() {
+        if (!screen.classList.contains('hidden')) {
+          screen.classList.add('hidden');
+          document.body.removeAttribute('data-loading');
+          window.dispatchEvent(new CustomEvent('app:loaded'));
+        }
+      }, 600);
+    }, 730);
+  })();
+</script>

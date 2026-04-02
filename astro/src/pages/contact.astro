@@ -1,0 +1,118 @@
+---
+import Base from '../layouts/Base.astro';
+import { cfImg, cfSrcset } from '../lib/img';
+---
+<Base title="Contact — Aerial Optic" description="Book an aerial photography session with Aerial Optic. Serving Kingsville, MD and the greater Chesapeake Bay area." currentPage="contact" heroPreload={cfSrcset('images/home/hero-contact.jpg')} ogImage={cfImg('images/home/hero-contact.jpg', { w: 1200, q: 80 })}>
+		<!-- /HEADER -->
+		<!-- PAGE HERO -->
+		<div class="top-single-bkg hero-dark" style="height: 50vh; position: relative; overflow: hidden;">
+			<div class="topsingleimg">
+				<img src={cfImg('images/home/hero-contact.jpg', { w: 1920 })} srcset={cfSrcset('images/home/hero-contact.jpg')} sizes="100vw" alt="Contact Us" width="1920" height="1080" loading="eager" fetchpriority="high" decoding="async" style="position: relative !important; object-position: center center !important;">
+			</div>
+			<div class="inner-desc">
+				<div class="container">
+					<h1 class="single-post-title display-2">Contact Us</h1>
+					<span class="post-subtitle">Let's capture something great together</span>
+				</div>
+			</div>
+		</div>
+		<!-- /PAGE HERO -->
+		<!-- WRAP CONTENT -->
+		<div id="wrap-content" class="page-content custom-page-template">
+			<!-- CONTACT / BOOKING SECTION -->
+			<div id="contact-form-section" style="padding: 80px 0; background: #f5f7f6;">
+				<div class="container">
+					<div class="row align-items-center">
+						<div class="col-lg-6 margin-bm50">
+							<div class="el-smalltitle">Book a Session</div>
+							<h2 class="display-4 margin-b30">Let's capture something great together</h2>
+							<p>Whether you need aerial coverage of a sportfishing trip, real estate listing, construction site, or special event — we're ready to fly. Fill out the form and we'll get back to you within 24 hours.</p>
+							<div style="margin-top: 30px;">
+								<p style="margin-bottom: 10px;"><a href="https://maps.google.com/?q=Kingsville+MD+21087" target="_blank" class="contact-info-link"><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i>Kingsville, MD 21087</a></p>
+								<p style="margin-bottom: 10px;"><a href="tel:+14439665968" class="contact-info-link"><i class="fas fa-mobile-alt" style="margin-right: 10px;"></i>443-966-5968</a></p>
+								<p style="margin-bottom: 10px;"><a href="mailto:info@aerialoptic.net" class="contact-info-link"><i class="far fa-envelope" style="margin-right: 10px;"></i>info@aerialoptic.net</a></p>
+							</div>
+							<div style="margin-top: 20px;">
+								<a href="https://www.instagram.com/Aerial__Optic" target="_blank" style="margin-right: 15px; font-size: 20px; color: var(--primary-color);"><i class="fab fa-instagram"></i></a>
+								<a href="https://www.facebook.com/AerialOptic" target="_blank" style="margin-right: 15px; font-size: 20px; color: var(--primary-color);"><i class="fab fa-facebook-f"></i></a>
+								<a href="https://www.tiktok.com/@Aerial__optic" target="_blank" style="font-size: 20px; color: var(--primary-color);"><i class="fab fa-tiktok"></i></a>
+							</div>
+						</div>
+						<div class="col-lg-6">
+							<form id="contact-form" data-contact-form style="background: #fff; padding: 40px; border-radius: 10px;">
+								<div class="row">
+									<div class="col-md-6" style="margin-bottom: 20px;">
+										<label style="display: block; margin-bottom: 5px; font-weight: 600; font-size: 14px; color: #333;">Name</label>
+										<input type="text" name="name" placeholder="Your name" required style="width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 5px; font-size: 15px; font-family: inherit;">
+									</div>
+									<div class="col-md-6" style="margin-bottom: 20px;">
+										<label style="display: block; margin-bottom: 5px; font-weight: 600; font-size: 14px; color: #333;">Email</label>
+										<input type="email" name="email" placeholder="Your email" required style="width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 5px; font-size: 15px; font-family: inherit;">
+									</div>
+								</div>
+								<div style="margin-bottom: 20px;">
+									<label style="display: block; margin-bottom: 5px; font-weight: 600; font-size: 14px; color: #333;">Phone</label>
+									<input type="tel" name="phone" placeholder="Your phone number" required style="width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 5px; font-size: 15px; font-family: inherit;">
+								</div>
+								<div style="margin-bottom: 20px;">
+									<label style="display: block; margin-bottom: 5px; font-weight: 600; font-size: 14px; color: #333;">Service type</label>
+									<select name="service" id="service-select" required style="width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 5px; font-size: 15px; font-family: inherit; background: #fff;">
+										<option value="">Select a service</option>
+										<option value="marine">Marine / Sportfishing</option>
+										<option value="realestate">Real Estate</option>
+										<option value="construction">Construction Progress</option>
+										<option value="events">Events</option>
+										<option value="commercial">Commercial / Business</option>
+										<option value="agriculture">Agriculture</option>
+										<option value="other">Other</option>
+									</select>
+								</div>
+								<div id="other-service-field" style="margin-bottom: 20px; display: none;">
+									<label style="display: block; margin-bottom: 5px; font-weight: 600; font-size: 14px; color: #333;">Please specify</label>
+									<input type="text" name="service_other" placeholder="Tell us what you need" style="width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 5px; font-size: 15px; font-family: inherit;">
+								</div>
+								<div style="margin-bottom: 20px;">
+									<label style="display: block; margin-bottom: 5px; font-weight: 600; font-size: 14px; color: #333;">Message</label>
+									<textarea name="message" rows="4" placeholder="Tell us about your project" required style="width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 5px; font-size: 15px; font-family: inherit; resize: vertical;"></textarea>
+								</div>
+								<div class="cf-turnstile" style="margin-bottom: 20px;"></div>
+								<button type="submit" class="read-more" style="border: none; cursor: pointer; font-family: inherit;">Send message</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /CONTACT / BOOKING SECTION -->
+			<!-- MAP / LOCATION SECTION -->
+			<div style="padding: 0; background: #fff;">
+				<div class="container" style="padding: 60px 0;">
+					<div class="row">
+						<div class="col-lg-12 alignc">
+							<div class="el-smalltitle">Our Location</div>
+							<h2 class="display-4 margin-b30">Kingsville, Maryland</h2>
+							<p>Based in Kingsville, MD 21087 — serving the Baltimore metro, Ocean City, and beyond. Open to travel for the right project.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /MAP / LOCATION SECTION -->
+			<!-- CTA SECTION -->
+			<div class="section-holder section-info padding-tb100 section-nomargin" style="background: var(--primary-color);">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="padding-lr200 alignc">
+								<h2 class="display-4 margin-b30" style="color: #fff;">Have a project in mind?</h2>
+								<p style="color: rgba(255,255,255,0.8);">We'd love to hear about it.</p>
+								<a href="#contact-form-section" class="read-more white-btn margin-t30">Book a Session</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /CTA SECTION -->
+		</div>
+		<!-- /WRAP CONTENT -->
+		<!-- FOOTER -->
+<script is:inline slot="scripts" src="/js/contact-submit.js"></script>
+</Base>

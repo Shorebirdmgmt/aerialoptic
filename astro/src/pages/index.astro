@@ -1,0 +1,360 @@
+---
+import Base from '../layouts/Base.astro';
+import { cfImg, cfSrcset } from '../lib/img';
+
+// Responsive slider images — 4 breakpoints matching srcset widths
+const sliderSrcs = [1, 2, 3].map(i => ({
+	sm:  cfImg(`images/home/slider-${i}.jpg`, { w: 480 }),
+	md:  cfImg(`images/home/slider-${i}.jpg`, { w: 768 }),
+	lg:  cfImg(`images/home/slider-${i}.jpg`, { w: 1200 }),
+	xl:  cfImg(`images/home/slider-${i}.jpg`, { w: 1920 }),
+}));
+
+const lqip1 = 'data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAADQAwCdASogABIAPzmEt1OvKCUkMAgB4CcJZADM0BhiX/w8wuM97AAA/s0Ge2gnEjjeF2ntKawT1bV+NugPejxv9nk83maatZpSn5uoqxPw4R+KHhLL5W1Nhxh3wjHBvXhb1z4AAAA=';
+const lqipContact = 'data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAAAwBACdASogABIAPzmEt1OvKKUisAgB4CcJZwAAQtvKyitet9UB0+1Pu4AA/rny5hCNZ7tGpFNuoFaSJkhM2A5caheQK+y/59DfN3wGnTUAhLq37do8AAAA';
+---
+<Base title="Aerial Optic — Cinematic Drone Photography in Maryland" description="FAA Part 107 certified drone pilot in Kingsville, MD. Aerial photography and videography for marine, real estate, construction, events, and commercial clients." currentPage="home" heroPreload={cfSrcset('images/home/slider-1.jpg')}>
+		<Fragment slot="head"><style set:html={`
+			.slide-1{background-image:url('${sliderSrcs[0].sm}')}
+			.slide-2{background-image:url('${sliderSrcs[1].sm}')}
+			.slide-3{background-image:url('${sliderSrcs[2].sm}')}
+			@media(min-width:481px){
+				.slide-1{background-image:url('${sliderSrcs[0].md}')}
+				.slide-2{background-image:url('${sliderSrcs[1].md}')}
+				.slide-3{background-image:url('${sliderSrcs[2].md}')}
+			}
+			@media(min-width:769px){
+				.slide-1{background-image:url('${sliderSrcs[0].lg}')}
+				.slide-2{background-image:url('${sliderSrcs[1].lg}')}
+				.slide-3{background-image:url('${sliderSrcs[2].lg}')}
+			}
+			@media(min-width:1201px){
+				.slide-1{background-image:url('${sliderSrcs[0].xl}')}
+				.slide-2{background-image:url('${sliderSrcs[1].xl}')}
+				.slide-3{background-image:url('${sliderSrcs[2].xl}')}
+			}
+		`}></style></Fragment>
+		<!-- /HEADER -->
+		<!-- HOME SLIDER -->
+		<div class="swiper-mt" style={`background: url(${lqip1}) center/cover`}>
+			<div class="swiper-wrapper">
+				<div class="swiper-slide slider-img slide-1">
+					<div class="container slider-caption">
+						<div class="slider-text">
+							<h1 class="display-2">Stunning Aerial Photography</h1>
+							<span class="post-subtitle"> Capture breathtaking moments from above with our expert drone shots.</span> <a href="/contact" class="read-more white-btn">Book a Session</a>
+						</div>
+					</div>
+				</div>
+				<!-- /slider-img -->
+				<div class="swiper-slide slider-img slide-2">
+					<div class="container slider-caption">
+						<div class="slider-text">
+							<h1 class="display-2">Eyes from the Skies</h1>
+							<span class="post-subtitle"> Professional drone photography for marine, real estate, events, and more.</span> <a href="/portfolio" class="read-more white-btn">View Portfolio</a>
+						</div>
+					</div>
+				</div>
+				<!-- /slider-img -->
+				<div class="swiper-slide slider-img slide-3">
+					<div class="container slider-caption">
+						<div class="slider-text">
+							<h1 class="display-2">Cinematic Drone Coverage</h1>
+							<span class="post-subtitle"> From offshore fishing to luxury real estate, we deliver stunning aerial visuals.</span> <a href="/contact" class="read-more white-btn">Book a Session</a>
+						</div>
+					</div>
+				</div>
+				<!-- /slider-img -->
+			</div>
+			<!-- /swiper-wrapper -->
+			<div class="swiper-mt-button-prev" tabindex="0" role="button" aria-label="Previous slide">
+				<svg version="1.1" class="arrow-slider" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" style="enable-background:new 0 0 55 55;" xml:space="preserve">
+					<path d="M33.2,28.3l-8.8,8.8c-0.4,0.4-1.1,0.4-1.5,0l-1-1c-0.4-0.4-0.4-1.1,0-1.5l7-7l-7-7c-0.4-0.4-0.4-1.1,0-1.5l1-1
+						c0.4-0.4,1.1-0.4,1.5,0l8.8,8.8C33.6,27.2,33.6,27.8,33.2,28.3z"></path>
+					<path d="M27.5,55C12.3,55,0,42.7,0,27.5S12.3,0,27.5,0S55,12.3,55,27.5S42.7,55,27.5,55z M27.5,5C15.1,5,5,15.1,5,27.5
+						S15.1,50,27.5,50S50,39.9,50,27.5S39.9,5,27.5,5z"></path>
+				</svg>
+			</div>
+			<!-- /swiper-mt-button-prev -->
+			<div class="swiper-mt-button-next" tabindex="0" role="button" aria-label="Next slide">
+				<svg version="1.1" class="arrow-slider" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" style="enable-background:new 0 0 55 55;" xml:space="preserve">
+					<path d="M33.2,28.3l-8.8,8.8c-0.4,0.4-1.1,0.4-1.5,0l-1-1c-0.4-0.4-0.4-1.1,0-1.5l7-7l-7-7c-0.4-0.4-0.4-1.1,0-1.5l1-1
+						c0.4-0.4,1.1-0.4,1.5,0l8.8,8.8C33.6,27.2,33.6,27.8,33.2,28.3z"></path>
+					<path d="M27.5,55C12.3,55,0,42.7,0,27.5S12.3,0,27.5,0S55,12.3,55,27.5S42.7,55,27.5,55z M27.5,5C15.1,5,5,15.1,5,27.5
+						S15.1,50,27.5,50S50,39.9,50,27.5S39.9,5,27.5,5z"></path>
+				</svg>
+			</div>
+			<!-- /swiper-mt-button-next -->
+		</div>
+		<!-- /swiper-mt -->
+		<!-- /HOME SLIDER -->
+		<!-- WRAP CONTENT -->
+		<div id="wrap-content" class="page-content custom-page-template">
+			<!-- SECTION 1 -->
+			<div id="home-section-3-1" class="section-holder home-section-3-1">
+				<div class="container">
+					<div class="row align-items-center">
+						<div class="col-lg-3 section-hide-mobile">
+							<div class="margin-r50 sr">
+								<img class="img-fluid radius10 margin-b30" src={cfImg('images/home/home2-img1.jpg', { w: 480 })} alt="Aerial beach photography" width="480" height="640" loading="lazy" decoding="async" />
+								<img class="img-fluid radius10" src={cfImg('images/home/home2-img3.jpg', { w: 480 })} alt="Aerial construction site" width="480" height="640" loading="lazy" decoding="async" />
+							</div>
+							<!-- /margin-r50 -->
+						</div>
+						<!-- /col-lg-3 -->
+						<div class="col-lg-6 alignc">
+							<div class="el-smalltitle sr">About Aerial Optic</div>
+							<h2 class="display-4 margin-b30 sr sr-delay-1">We Capture Stunning Aerial Images That Tell Your Story</h2>
+							<p class="sr sr-delay-2">At Aerial Optic, we believe that every picture tells a story. As an FAA Part 107 certified drone pilot based in Kingsville, Maryland, we specialize in cinematic aerial photography and videography for marine, real estate, construction, events, and commercial clients. Whether chasing sportfishing boats offshore or showcasing a waterfront property from above, we deliver powerful visuals that elevate your brand.</p>
+							<div class="margin-t30">
+								<a href="/contact" class="read-more">Get in Touch</a>
+							</div>
+						</div>
+						<!-- /col-lg-6 -->
+						<div class="col-lg-3 section-hide-mobile">
+							<div class="margin-l50 sr sr-delay-3">
+								<img class="img-fluid radius10 margin-t30" src={cfImg('images/home/home2-img2.jpg', { w: 480 })} alt="Aerial waterfront view" width="480" height="640" loading="lazy" decoding="async" />
+								<img class="img-fluid radius10  margin-t30" src={cfImg('images/home/home2-img4.jpg', { w: 480 })} alt="Aerial marina shot" width="480" height="640" loading="lazy" decoding="async" />
+							</div>
+							<!-- /margin-l50 -->
+						</div>
+						<!-- /col-lg-3 -->
+					</div>
+					<!-- /row -->
+				</div>
+				<!-- /container -->
+			</div>
+			<!-- /SECTION 1 -->
+			<!-- SECTION 2 -->
+			<div id="home-section-3-2" class="section-holder home-section-3-2 margin-b50">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-4 col-md-6 sr sr-delay-1" style="margin-bottom: 30px;">
+							<a href="/portfolio-powerboats" style="display: block; text-decoration: none; color: inherit;">
+								<div class="portfolio-card" style="position: relative; overflow: hidden;">
+									<img loading="lazy" decoding="async" src={cfImg('images/portfolio/featured-images/pb-pertye-1.jpg', { w: 640 })} srcset={cfSrcset('images/portfolio/featured-images/pb-pertye-1.jpg', { widths: [320, 480, 640] })} alt="Powerboats" sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw" width="640" height="480" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block;">
+									<div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 25px; text-align: center; background: linear-gradient(transparent, rgba(0,0,0,0.75));">
+										<h3 style="color: #fff; margin: 0 0 5px; font-family: var(--headings-font); font-size: 1.5rem;">Powerboats</h3>
+										<span style="color: rgba(255,255,255,0.8); font-size: 14px;">High-performance boats on the Chesapeake</span>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="col-lg-4 col-md-6 sr sr-delay-2" style="margin-bottom: 30px;">
+							<a href="/portfolio-sportfishing" style="display: block; text-decoration: none; color: inherit;">
+								<div class="portfolio-card" style="position: relative; overflow: hidden;">
+									<img loading="lazy" decoding="async" src={cfImg('images/portfolio/featured-images/sf-wmo-1.jpg', { w: 640 })} srcset={cfSrcset('images/portfolio/featured-images/sf-wmo-1.jpg', { widths: [320, 480, 640] })} alt="Sportfishing" sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw" width="640" height="480" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block;">
+									<div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 25px; text-align: center; background: linear-gradient(transparent, rgba(0,0,0,0.75));">
+										<h3 style="color: #fff; margin: 0 0 5px; font-family: var(--headings-font); font-size: 1.5rem;">Sportfishing</h3>
+										<span style="color: rgba(255,255,255,0.8); font-size: 14px;">Offshore action and tournament coverage</span>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="col-lg-4 col-md-6 sr sr-delay-3" style="margin-bottom: 30px;">
+							<a href="/portfolio-local-business" style="display: block; text-decoration: none; color: inherit;">
+								<div class="portfolio-card" style="position: relative; overflow: hidden;">
+									<img loading="lazy" decoding="async" src={cfImg('images/portfolio/featured-images/biz-nicks-1.jpg', { w: 640 })} srcset={cfSrcset('images/portfolio/featured-images/biz-nicks-1.jpg', { widths: [320, 480, 640] })} alt="Local Businesses" sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw" width="640" height="480" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block;">
+									<div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 25px; text-align: center; background: linear-gradient(transparent, rgba(0,0,0,0.75));">
+										<h3 style="color: #fff; margin: 0 0 5px; font-family: var(--headings-font); font-size: 1.5rem;">Local Businesses</h3>
+										<span style="color: rgba(255,255,255,0.8); font-size: 14px;">Aerial views that put local brands on the map</span>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="col-lg-4 col-md-6 sr sr-delay-4" style="margin-bottom: 30px;">
+							<a href="/portfolio-construction" style="display: block; text-decoration: none; color: inherit;">
+								<div class="portfolio-card" style="position: relative; overflow: hidden;">
+									<img loading="lazy" decoding="async" src={cfImg('images/portfolio/featured-images/con-crane-1.jpg', { w: 640 })} srcset={cfSrcset('images/portfolio/featured-images/con-crane-1.jpg', { widths: [320, 480, 640] })} alt="Construction" sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw" width="640" height="480" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block;">
+									<div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 25px; text-align: center; background: linear-gradient(transparent, rgba(0,0,0,0.75));">
+										<h3 style="color: #fff; margin: 0 0 5px; font-family: var(--headings-font); font-size: 1.5rem;">Construction</h3>
+										<span style="color: rgba(255,255,255,0.8); font-size: 14px;">Documenting progress from above</span>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="col-lg-4 col-md-6 sr sr-delay-5" style="margin-bottom: 30px;">
+							<a href="/portfolio-realestate" style="display: block; text-decoration: none; color: inherit;">
+								<div class="portfolio-card" style="position: relative; overflow: hidden;">
+									<img loading="lazy" decoding="async" src={cfImg('images/portfolio/featured-images/re-waterfront-1.jpg', { w: 640 })} srcset={cfSrcset('images/portfolio/featured-images/re-waterfront-1.jpg', { widths: [320, 480, 640] })} alt="Real Estate" sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw" width="640" height="480" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block;">
+									<div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 25px; text-align: center; background: linear-gradient(transparent, rgba(0,0,0,0.75));">
+										<h3 style="color: #fff; margin: 0 0 5px; font-family: var(--headings-font); font-size: 1.5rem;">Real Estate</h3>
+										<span style="color: rgba(255,255,255,0.8); font-size: 14px;">Stunning property aerials that sell</span>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="col-lg-4 col-md-6 sr sr-delay-6" style="margin-bottom: 30px;">
+							<a href="/portfolio-events" style="display: block; text-decoration: none; color: inherit;">
+								<div class="portfolio-card" style="position: relative; overflow: hidden;">
+									<img loading="lazy" decoding="async" src={cfImg('images/portfolio/featured-images/ev-carshow-1.jpg', { w: 640 })} srcset={cfSrcset('images/portfolio/featured-images/ev-carshow-1.jpg', { widths: [320, 480, 640] })} alt="Events" sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw" width="640" height="480" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block;">
+									<div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 25px; text-align: center; background: linear-gradient(transparent, rgba(0,0,0,0.75));">
+										<h3 style="color: #fff; margin: 0 0 5px; font-family: var(--headings-font); font-size: 1.5rem;">Events</h3>
+										<span style="color: rgba(255,255,255,0.8); font-size: 14px;">Car shows, boat rallies, and community gatherings</span>
+									</div>
+								</div>
+							</a>
+						</div>
+					</div>
+					<div class="margin-t50 alignc sr">
+						<a href="/portfolio" class="read-more">View full portfolio</a>
+					</div>
+				</div>
+			</div>
+			<!-- /SECTION 2 -->
+			<!-- SECTION 3 -->
+			<div id="home-section-3-3" class="section-holder home-section-3-3 margin-b50">
+				<div class="row g-0 align-items-center">
+					<div class="col-lg-6 margin-bm50 sr" style={`background: url(${lqipContact}) center/cover`}>
+						<img class="img-fluid radius-right250" src={cfImg('images/pages/contact-page.jpg', { w: 800 })} alt="Aerial drone over marina" width="800" height="533" loading="lazy" decoding="async">
+					</div>
+					<!-- /col-lg-6 -->
+					<div class="col-lg-6 sr sr-delay-2">
+						<div class="padding-50">
+							<div class="testimonials">
+								<div class="testimonial-quote">
+									<svg version="1.1" class="icon-quote2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+										<g>
+											<g>
+												<path d="M84.2,437.2c-7.2,0-14.2-3.2-18.9-9.1c-6.7-8.4-6.9-20.3-0.7-29c16.6-22.9,28-49.4,33.1-77C72,316.2,48.6,302.3,31,282.2
+													c-20-22.8-31-52-31-82.3c0-69,56.1-125.1,125.1-125.1s125.1,56.1,125.1,125.1c0,103.2-61.6,195.6-156.8,235.4
+													C90.4,436.6,87.3,437.2,84.2,437.2z M125.1,94.1c-58.4,0-105.9,47.5-105.9,105.9c0,52.4,39.1,97.4,90.9,104.8l9.5,1.3l-1.3,9.5
+													c-4.7,34-17.8,66.8-38.1,94.8c-1.3,1.8-1.2,4.1,0.1,5.8c1.3,1.7,3.6,2.3,5.6,1.5c88.1-36.8,145-122.2,145-217.7
+													C231,141.5,183.5,94.1,125.1,94.1z M346,437.2c-7.2,0-14.2-3.2-18.9-9.1c-6.7-8.4-6.9-20.3-0.7-29c16.6-22.9,27.9-49.4,33.1-77
+													c-25.8-5.8-49.2-19.7-66.8-39.8c-20-22.8-31-52-31-82.3c0-69,56.1-125.1,125.1-125.1S512,130.9,512,199.9
+													c0,103.2-61.6,195.6-156.8,235.4C352.2,436.6,349.1,437.2,346,437.2z M386.9,94.1c-58.4,0-105.9,47.5-105.9,105.9
+													c0,52.4,39.1,97.4,90.9,104.8l9.5,1.3l-1.3,9.5c-4.7,34-17.8,66.8-38.1,94.8c-1.3,1.8-1.2,4.1,0.1,5.8c1.3,1.7,3.6,2.3,5.6,1.5
+													c88.1-36.8,145-122.2,145-217.7C492.8,141.5,445.3,94.1,386.9,94.1z"></path>
+											</g>
+										</g>
+									</svg>
+								</div>
+								<!-- /testimonial-quote -->
+								<div class="testimonial-slider">
+									<div class="swiper-wrapper">
+										<div class="swiper-slide testimonial-info">
+											<h4 class="testimonial-desc">Working with Aerial Optic was an incredible experience. Bradley captured our sportfishing tournament from angles we never could have imagined. The aerial shots of our fleet heading offshore were absolutely stunning.</h4>
+											<div class="testimonial-client">Captain Mike</div>
+											<div class="testimonial-company">Ocean City Fishing Center</div>
+										</div>
+										<!-- /testimonial-info -->
+										<div class="swiper-slide testimonial-info">
+											<h4 class="testimonial-desc">The drone footage of our waterfront property was a game-changer. We had multiple offers within the first week of listing, and buyers specifically mentioned the aerial photography as what caught their attention.</h4>
+											<div class="testimonial-client">Sarah Mitchell</div>
+											<div class="testimonial-company">Chesapeake Realty</div>
+										</div>
+										<!-- /testimonial-info -->
+										<div class="swiper-slide testimonial-info">
+											<h4 class="testimonial-desc">Bradley documented our entire construction project from start to finish with monthly drone flyovers. The progress photos were invaluable for our stakeholders and made our final presentation incredibly compelling.</h4>
+											<div class="testimonial-client">James Morrison</div>
+											<div class="testimonial-company">Miller, Long &amp; Arnold</div>
+										</div>
+										<!-- /testimonial-info -->
+										<div class="swiper-slide testimonial-info">
+											<h4 class="testimonial-desc">Aerial Optic captured our boat like no one else could. The cinematic drone shots of our Viking running offshore at sunset are now the centerpiece of all our marketing materials. Worth every penny.</h4>
+											<div class="testimonial-client">Tom Richardson</div>
+											<div class="testimonial-company">Absolute Pleasure Charters</div>
+										</div>
+										<!-- /testimonial-info -->
+									</div>
+									<!-- /swiper-wrapper-->
+									<div class="swiper-pagination"></div>
+								</div>
+								<!-- /testimonial-slider -->
+							</div>
+							<!-- /testimonials -->
+						</div>
+						<!-- /padding-50 -->
+					</div>
+					<!-- /col-lg-6 -->
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /SECTION 3 -->
+			<!-- SECTION 5 -->
+			<div id="home-section-3-5" class="section-holder section-info padding-tb100 section-nomargin home-section-3-5">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="padding-lr200 alignc">
+								<div class="el-smalltitle sr">Get Started</div>
+								<h2 class="display-4 margin-b30 sr sr-delay-1">Ready to elevate your perspective?</h2>
+								<p>Whether it's a sportfishing charter, real estate listing, construction project, or special event, we bring your vision to life from above.</p>
+								<a href="/contact" class="read-more margin-t30">Book a Session</a>
+							</div>
+						</div>
+						<!-- /col-lg-12 -->
+					</div>
+					<!-- /row -->
+				</div>
+				<!-- /container -->
+			</div>
+			<!-- /SECTION 5 -->
+		</div>
+		<!-- /WRAP CONTENT -->
+<Fragment slot="before-footer">
+		<div id="home-section-3-5" style="padding: 80px 0; background: #f5f7f6;">
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-lg-6 margin-bm50 sr">
+						<div class="el-smalltitle sr">Book a Session</div>
+						<h2 class="display-4 margin-b30 sr sr-delay-1">Let's capture something great together</h2>
+						<p>Whether you need aerial coverage of a sportfishing trip, real estate listing, construction site, or special event — we're ready to fly. Fill out the form and we'll get back to you within 24 hours.</p>
+						<div style="margin-top: 30px;">
+							<p style="margin-bottom: 10px;"><a href="https://maps.google.com/?q=Kingsville+MD+21087" target="_blank" class="contact-info-link"><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i>Kingsville, MD 21087</a></p>
+							<p style="margin-bottom: 10px;"><a href="tel:+14439665968" class="contact-info-link"><i class="fas fa-mobile-alt" style="margin-right: 10px;"></i>443-966-5968</a></p>
+							<p style="margin-bottom: 10px;"><a href="mailto:info@aerialoptic.net" class="contact-info-link"><i class="far fa-envelope" style="margin-right: 10px;"></i>info@aerialoptic.net</a></p>
+						</div>
+						<div style="margin-top: 20px;">
+							<a href="https://www.instagram.com/Aerial__Optic" target="_blank" style="margin-right: 15px; font-size: 20px; color: var(--primary-color);"><i class="fab fa-instagram"></i></a>
+							<a href="https://www.facebook.com/AerialOptic" target="_blank" style="margin-right: 15px; font-size: 20px; color: var(--primary-color);"><i class="fab fa-facebook-f"></i></a>
+							<a href="https://www.tiktok.com/@Aerial__optic" target="_blank" style="font-size: 20px; color: var(--primary-color);"><i class="fab fa-tiktok"></i></a>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<form id="contact-form" data-contact-form style="background: #fff; padding: 40px; border-radius: 10px;">
+							<div class="row">
+								<div class="col-md-6" style="margin-bottom: 20px;">
+									<label style="display: block; margin-bottom: 5px; font-weight: 600; font-size: 14px; color: #333;">Name</label>
+									<input type="text" name="name" placeholder="Your name" required style="width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 5px; font-size: 15px; font-family: inherit;">
+								</div>
+								<div class="col-md-6" style="margin-bottom: 20px;">
+									<label style="display: block; margin-bottom: 5px; font-weight: 600; font-size: 14px; color: #333;">Email</label>
+									<input type="email" name="email" placeholder="Your email" required style="width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 5px; font-size: 15px; font-family: inherit;">
+								</div>
+							</div>
+							<div style="margin-bottom: 20px;">
+								<label style="display: block; margin-bottom: 5px; font-weight: 600; font-size: 14px; color: #333;">Phone</label>
+								<input type="tel" name="phone" placeholder="Your phone number" required style="width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 5px; font-size: 15px; font-family: inherit;">
+							</div>
+							<div style="margin-bottom: 20px;">
+								<label style="display: block; margin-bottom: 5px; font-weight: 600; font-size: 14px; color: #333;">Service type</label>
+								<select name="service" id="service-select" required style="width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 5px; font-size: 15px; font-family: inherit; background: #fff;">
+									<option value="">Select a service</option>
+									<option value="marine">Marine / Sportfishing</option>
+									<option value="realestate">Real Estate</option>
+									<option value="construction">Construction Progress</option>
+									<option value="events">Events</option>
+									<option value="commercial">Commercial / Business</option>
+									<option value="agriculture">Agriculture</option>
+									<option value="other">Other</option>
+								</select>
+							</div>
+							<div id="other-service-field" style="margin-bottom: 20px; display: none;">
+								<label style="display: block; margin-bottom: 5px; font-weight: 600; font-size: 14px; color: #333;">Please specify</label>
+								<input type="text" name="service_other" placeholder="Tell us what you need" style="width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 5px; font-size: 15px; font-family: inherit;">
+							</div>
+							<div style="margin-bottom: 20px;">
+								<label style="display: block; margin-bottom: 5px; font-weight: 600; font-size: 14px; color: #333;">Message</label>
+								<textarea name="message" rows="4" placeholder="Tell us about your project" required style="width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 5px; font-size: 15px; font-family: inherit; resize: vertical;"></textarea>
+							</div>
+							<div class="cf-turnstile" style="margin-bottom: 20px;"></div>
+							<button type="submit" class="read-more" style="border: none; cursor: pointer; font-family: inherit;">Send message</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+</Fragment>
+<script is:inline slot="scripts" src="/js/contact-submit.js"></script>
+</Base>

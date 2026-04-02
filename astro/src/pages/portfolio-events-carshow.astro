@@ -1,0 +1,62 @@
+---
+import Base from '../layouts/Base.astro';
+import { cfImg, cfSrcset } from '../lib/img';
+---
+<Base title="Ocean City car show — Events — Aerial Optic" description="Aerial coverage of the annual Ocean City beachfront car show — classic and custom cars along the boardwalk." currentPage="portfolio" heroPreload={cfSrcset('images/home/slider-1.jpg')} ogImage={cfImg('images/home/slider-1.jpg', { w: 1200, q: 80 })}>
+		<div class="top-single-bkg" style="height: 50vh; position: relative; overflow: hidden;">
+			<div class="topsingleimg">
+				<img src={cfImg('images/home/slider-1.jpg', { w: 1920 })} srcset={cfSrcset('images/home/slider-1.jpg')} sizes="100vw" alt="Ocean City car show" width="1920" height="1080" loading="eager" fetchpriority="high" decoding="async">
+			</div>
+			<div class="inner-desc">
+				<div class="container">
+					<h1 class="single-post-title display-2">Ocean City car show</h1>
+					<span class="post-subtitle">Events</span>
+				</div>
+			</div>
+		</div>
+		<div id="wrap-content" class="page-content custom-page-template">
+			<div class="section-holder" style="padding: 60px 0;">
+				<div class="container">
+					<a href="/portfolio-events" class="read-more" style="margin-bottom: 40px; display: inline-block;"><i class="fa fa-chevron-left" style="margin-right: 8px;"></i> Back to Events</a>
+					<div style="margin-bottom: 50px;">
+						<div class="el-smalltitle">Events</div>
+						<h2 class="display-4 margin-b30">Ocean City car show</h2>
+						<p style="max-width: 700px;">Aerial coverage of the annual Ocean City beachfront car show — hundreds of classic and custom cars lined up along the boardwalk.</p>
+					</div>
+					<div class="row">
+						<div class="col-lg-4 col-md-6" style="margin-bottom: 30px;">
+							<div class="ao-gallery-item">
+								<img src={cfImg('images/portfolio/featured-images/ev-carshow-1.jpg', { w: 640 })} srcset={cfSrcset('images/portfolio/featured-images/ev-carshow-1.jpg', { widths: [320, 480, 640] })} alt="Aerial of the beachfront car show" sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw" width="640" height="427" loading="lazy" decoding="async" style="width: 100%; display: block;">
+							</div>
+							<p class="ao-gallery-caption" style="margin-top: 10px; font-size: 14px; color: #858585;">Aerial of the beachfront car show</p>
+						</div>
+						<div class="col-lg-4 col-md-6" style="margin-bottom: 30px;">
+							<div class="ao-gallery-item">
+								<img src={cfImg('images/portfolio/featured-images/ev-carshow-2.jpg', { w: 640 })} srcset={cfSrcset('images/portfolio/featured-images/ev-carshow-2.jpg', { widths: [320, 480, 640] })} alt="Classic cars with hoods open" sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw" width="640" height="427" loading="lazy" decoding="async" style="width: 100%; display: block;">
+							</div>
+							<p class="ao-gallery-caption" style="margin-top: 10px; font-size: 14px; color: #858585;">Classic cars with hoods open, ocean behind</p>
+						</div>
+						<div class="col-lg-4 col-md-6" style="margin-bottom: 30px;">
+							<div class="ao-gallery-item">
+								<img src={cfImg('images/portfolio/featured-images/ev-carshow-3.jpg', { w: 640 })} srcset={cfSrcset('images/portfolio/featured-images/ev-carshow-3.jpg', { widths: [320, 480, 640] })} alt="VW lineup at the cruise-in" sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw" width="640" height="427" loading="lazy" decoding="async" style="width: 100%; display: block;">
+							</div>
+							<p class="ao-gallery-caption" style="margin-top: 10px; font-size: 14px; color: #858585;">VW lineup at the cruise-in</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="section-holder section-info padding-tb100 section-nomargin" style="background: var(--primary-color);">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="padding-lr200 alignc">
+								<h2 class="display-4 margin-b30" style="color: #fff;">Like what you see?</h2>
+								<p style="color: rgba(255,255,255,0.8);">Let's capture your next project from a whole new perspective.</p>
+								<a href="/contact" class="read-more white-btn margin-t30">Book a Session</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</Base>

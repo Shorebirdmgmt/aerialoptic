@@ -4218,6 +4218,21 @@ button, input, optgroup, select, textarea {
 	box-shadow: 0 5px 20px rgba(255,255,255,0.3);
 }
 
+.read-more.back-btn{
+	background: none;
+	color: #147170;
+	padding: 10px 0;
+}
+.read-more.back-btn:after{
+	display: none;
+}
+.read-more.back-btn:hover{
+	background: none;
+	color: #0D5856;
+	transform: none;
+	box-shadow: none;
+}
+
 .read-more-v2{
 	font-size: 15px;
 	font-weight: 700;

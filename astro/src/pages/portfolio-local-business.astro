@@ -1,57 +1,43 @@
 ---
 import Base from '../layouts/Base.astro';
 import { cfImg, cfSrcset } from '../lib/img';
+import { fetchPhotos } from '../lib/api';
+
+const photos = await fetchPhotos('Local Business');
+const heroPhoto = photos[0];
 ---
-<Base title="Local Businesses — Portfolio — Aerial Optic" description="Aerial photography for local businesses — restaurants, marinas, entertainment venues, and waterfront properties in Maryland." currentPage="portfolio" heroPreload={cfSrcset('images/home/slider-1.jpg')} ogImage={cfImg('images/home/slider-1.jpg', { w: 1200, q: 80 })}>
+<Base title="Local Business Aerial Photography | Aerial Optic" description="Aerial photography for local businesses — restaurants, marinas, entertainment venues, and waterfront properties in Maryland." currentPage="portfolio" heroPreload={heroPhoto ? cfSrcset(heroPhoto.r2_key) : undefined} ogImage={heroPhoto ? cfImg(heroPhoto.r2_key, { w: 1200, q: 80 }) : undefined}>
 		<!-- PAGE HERO -->
-		<div class="top-single-bkg" style="height: 50vh; position: relative; overflow: hidden;">
+		<div class="top-single-bkg" style="height: 65vh;">
 			<div class="topsingleimg">
-				<img src={cfImg('images/home/slider-1.jpg', { w: 1920 })} srcset={cfSrcset('images/home/slider-1.jpg')} sizes="100vw" alt="Local Businesses" width="1920" height="1080" loading="eager" fetchpriority="high" decoding="async">
+				{heroPhoto && <img src={cfImg(heroPhoto.r2_key, { w: 1920 })} srcset={cfSrcset(heroPhoto.r2_key)} sizes="100vw" alt="Local Businesses" width="1920" height="1080" loading="eager" fetchpriority="high" decoding="async">}
 			</div>
 			<div class="inner-desc">
 				<div class="container">
 					<h1 class="single-post-title display-2">Local Businesses</h1>
-					<span class="post-subtitle">Aerial views that put local brands on the map</span>
+					<span class="post-subtitle">Portfolio</span>
 				</div>
 			</div>
 		</div>
+		<!-- /PAGE HERO -->
 		<!-- WRAP CONTENT -->
 		<div id="wrap-content" class="page-content custom-page-template">
 			<div class="section-holder" style="padding: 60px 0;">
 				<div class="container">
-					<a href="/portfolio" class="read-more" style="margin-bottom: 40px; display: inline-block;"><i class="fa fa-chevron-left" style="margin-right: 8px;"></i> All categories</a>
-					<div class="alignc" style="margin-bottom: 50px;">
-						<div class="el-smalltitle">Local Businesses</div>
-						<h2 class="display-4 margin-b30">Local Businesses</h2>
-						<p style="max-width: 700px; margin: 0 auto;">Aerial and ground-level photography that helps restaurants, marinas, entertainment venues, and waterfront businesses stand out.</p>
-					</div>
+					<a href="/portfolio" class="read-more back-btn" style="margin-bottom: 40px;"><i class="fa fa-chevron-left" style="margin-right: 8px;"></i> Back to Portfolio</a>
 					<div class="row">
-						<div class="col-lg-6 col-md-6" style="margin-bottom: 30px;">
-							<a href="/portfolio-local-business-nicks" style="display: block; text-decoration: none; color: inherit;">
-								<div style="position: relative; overflow: hidden; border-radius: 10px;">
-									<img src={cfImg('images/portfolio/featured-images/biz-nicks-1.jpg', { w: 640 })} alt="Nick's Mini Golf" width="640" height="360" loading="lazy" decoding="async" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block;">
-									<div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 25px; background: linear-gradient(transparent, rgba(0,0,0,0.75));">
-										<h3 style="color: #fff; margin: 0 0 5px; font-family: var(--headings-font); font-size: 1.5rem;">Nick's Mini Golf</h3>
-										<span style="color: rgba(255,255,255,0.8); font-size: 14px;">2 photos</span>
-									</div>
+						{photos.map((photo) => (
+							<div class="col-lg-4 col-md-6" style="margin-bottom: 30px;">
+								<div class="ao-gallery-item">
+									<img src={cfImg(photo.r2_key, { w: 640 })} srcset={cfSrcset(photo.r2_key, { widths: [320, 480, 640] })} sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw" alt={photo.title || ''} width="640" height="427" loading="lazy" decoding="async" style="width: 100%; display: block;">
 								</div>
-							</a>
-						</div>
-						<div class="col-lg-6 col-md-6" style="margin-bottom: 30px;">
-							<a href="/portfolio-local-business-marina" style="display: block; text-decoration: none; color: inherit;">
-								<div style="position: relative; overflow: hidden; border-radius: 10px;">
-									<img src={cfImg('images/portfolio/featured-images/biz-marina-1.jpg', { w: 640 })} alt="Waterfront Marina at Sunset" width="640" height="360" loading="lazy" decoding="async" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block;">
-									<div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 25px; background: linear-gradient(transparent, rgba(0,0,0,0.75));">
-										<h3 style="color: #fff; margin: 0 0 5px; font-family: var(--headings-font); font-size: 1.5rem;">Waterfront marina at sunset</h3>
-										<span style="color: rgba(255,255,255,0.8); font-size: 14px;">2 photos</span>
-									</div>
-								</div>
-							</a>
-						</div>
+								{photo.caption && <p class="ao-gallery-caption" style="margin-top: 10px; font-size: 14px; color: #858585;">{photo.caption}</p>}
+							</div>
+						))}
 					</div>
 				</div>
 			</div>
-			<!-- CTA SECTION -->
+			<!-- CTA -->
 			<div class="section-holder section-info padding-tb100 section-nomargin" style="background: var(--primary-color);">
 				<div class="container">
 					<div class="row">
@@ -66,5 +52,5 @@ import { cfImg, cfSrcset } from '../lib/img';
 				</div>
 			</div>
 		</div>
-		<!-- FOOTER -->
+		<!-- /WRAP CONTENT -->
 </Base>

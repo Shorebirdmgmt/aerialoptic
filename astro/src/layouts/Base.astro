@@ -1,6 +1,9 @@
 ---
 import { cfImg } from '../lib/img';
+import { fetchPhotos } from '../lib/api';
 import LoadingScreen from '../components/LoadingScreen.astro';
+
+const instaPhotos = await fetchPhotos('Instagram');
 
 interface Props {
   title: string;
@@ -97,13 +100,13 @@ const ogImg = ogImage || OG_DEFAULT;
 						<div class="menu-contact">
 							<div class="mobile-content">
 								<h5 class="widgettitle">Main Office</h5>
-								<div class="mobile-address"> Kingsville, MD 21087 <br> 443-966-5968 <br> info@aerialoptic.net</div>
+								<div class="mobile-address"> Kingsville, MD 21087 <br> 443-966-5968 <br> aerialoptic1@outlook.com</div>
 								<h5 class="widgettitle">Social</h5>
 								<ul class="social-media">
 									<li><a class="social-facebook" href="https://www.facebook.com/AerialOptic" target="_blank">Facebook</a></li>
 									<li><a class="social-twitter" href="https://www.tiktok.com/@Aerial__optic" target="_blank">TikTok</a></li>
 									<li><a class="social-instagram" href="https://www.instagram.com/Aerial__Optic" target="_blank">Instagram</a></li>
-									<li><a class="social-email" href="mailto:info@aerialoptic.net" target="_blank">Email</a></li>
+									<li><a class="social-email" href="mailto:aerialoptic1@outlook.com" target="_blank">Email</a></li>
 								</ul>
 							</div>
 						</div>
@@ -124,7 +127,7 @@ const ogImg = ogImage || OG_DEFAULT;
 							<li><a class="social-facebook" href="https://www.facebook.com/AerialOptic" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
 							<li><a class="social-twitter" href="https://www.tiktok.com/@Aerial__optic" target="_blank"><i class="fab fa-tiktok"></i></a></li>
 							<li><a class="social-instagram" href="https://www.instagram.com/Aerial__Optic" target="_blank"><i class="fab fa-instagram"></i></a></li>
-							<li><a class="social-email" href="mailto:info@aerialoptic.net" target="_blank"><i class="far fa-envelope"></i></a></li>
+							<li><a class="social-email" href="mailto:aerialoptic1@outlook.com" target="_blank"><i class="far fa-envelope"></i></a></li>
 						</ul>
 					</div>
 					<div class="logo logo-5 logo-white"><a href="/"><img class="img-fluid" src={cfImg('images/logo-aerial-optic-badge.png', { w: 278, q: 80 })} alt="Aerial Optic" width="278" height="180" decoding="async"></a></div>
@@ -170,8 +173,8 @@ const ogImg = ogImage || OG_DEFAULT;
 		<div id="footer-instagram">
 			<div class="swiper insta-swiper">
 				<div class="swiper-wrapper">
-					{[1,2,3,4,5,6,7,8].map(i => (
-						<div class="swiper-slide"><a href="https://www.instagram.com/Aerial__Optic" target="_blank"><img src={cfImg(`images/insta/insta-${i}.jpg`, { w: 240 })} alt="Aerial Optic Instagram" width="240" height="240" loading="lazy" decoding="async"></a></div>
+					{instaPhotos.map(photo => (
+						<div class="swiper-slide"><a href="https://www.instagram.com/Aerial__Optic" target="_blank"><img src={cfImg(photo.r2_key, { w: 240 })} alt="Aerial Optic Instagram" width="240" height="240" loading="lazy" decoding="async"></a></div>
 					))}
 				</div>
 			</div>
@@ -195,7 +198,7 @@ const ogImg = ogImage || OG_DEFAULT;
 											<ul class="footer-contact">
 												<li><a href="https://maps.google.com/?q=Kingsville+MD+21087" target="_blank"><i class="fas fa-map-marker-alt"></i><span>Kingsville, MD 21087</span></a></li>
 												<li><a href="tel:+14439665968"><i class="fas fa-mobile-alt"></i><span>443-966-5968</span></a></li>
-												<li><a href="mailto:info@aerialoptic.net"><i class="far fa-envelope"></i><span>info@aerialoptic.net</span></a></li>
+												<li><a href="mailto:aerialoptic1@outlook.com"><i class="far fa-envelope"></i><span>aerialoptic1@outlook.com</span></a></li>
 											</ul>
 										</div>
 									</div>
@@ -253,6 +256,7 @@ const ogImg = ogImage || OG_DEFAULT;
 		<script is:inline src='/js/init.js'></script>
 		<script is:inline src='/js/ao-extras.js'></script>
 		<script is:inline src='/js/lightbox.js'></script>
+		<script is:inline src='/realtime.js'></script>
 		<slot name="scripts" />
 	</body>
 </html>

@@ -1,11 +1,37 @@
 ---
 import Base from '../layouts/Base.astro';
 import { cfImg, cfSrcset } from '../lib/img';
+import { fetchPhotos } from '../lib/api';
+
+const PORTFOLIO_CATEGORIES = [
+  { name: 'Powerboats', slug: 'powerboats', subtitle: 'High-performance boats on the Chesapeake' },
+  { name: 'Sportfishing', slug: 'sportfishing', subtitle: 'Offshore action and tournament coverage' },
+  { name: 'Local Business', slug: 'local-business', subtitle: 'Aerial views that put local brands on the map' },
+  { name: 'Construction', slug: 'construction', subtitle: 'Documenting progress from above' },
+  { name: 'Real Estate', slug: 'realestate', subtitle: 'Stunning property aerials that sell' },
+  { name: 'Events', slug: 'events', subtitle: 'Car shows, boat rallies, and community gatherings' },
+];
+
+const allPhotos = await fetchPhotos();
+
+// Group photos by category and find the first photo for each category card
+const categoryPhotos = new Map<string, typeof allPhotos>();
+for (const photo of allPhotos) {
+  const existing = categoryPhotos.get(photo.category) || [];
+  existing.push(photo);
+  categoryPhotos.set(photo.category, existing);
+}
+
+// Build category cards with thumbnail from first photo
+const categories = PORTFOLIO_CATEGORIES.map((cat) => {
+  const photos = categoryPhotos.get(cat.name) || [];
+  const thumbnail = photos[0];
+  return { ...cat, thumbnail };
+}).filter((cat) => cat.thumbnail);
 ---
-<Base title="Portfolio — Aerial Optic" description="Browse our aerial photography portfolio — powerboats, sportfishing, real estate, construction, events, and local businesses." currentPage="portfolio" heroPreload={cfSrcset('images/home/slider-1.jpg')} ogImage={cfImg('images/home/slider-1.jpg', { w: 1200, q: 80 })}>
-		<!-- /HEADER -->
+<Base title="Drone Photography Portfolio | Aerial Optic" description="Browse our aerial photography portfolio — powerboats, sportfishing, real estate, construction, events, and local businesses." currentPage="portfolio" heroPreload={cfSrcset('images/home/slider-1.jpg')} ogImage={cfImg('images/home/slider-1.jpg', { w: 1200, q: 80 })}>
 		<!-- PAGE HERO -->
-		<div class="top-single-bkg" style="height: 50vh; position: relative; overflow: hidden;">
+		<div class="top-single-bkg" style="height: 65vh;">
 			<div class="topsingleimg">
 				<img src={cfImg('images/home/slider-1.jpg', { w: 1920 })} srcset={cfSrcset('images/home/slider-1.jpg')} sizes="100vw" alt="Our Portfolio" width="1920" height="1080" loading="eager" fetchpriority="high" decoding="async">
 			</div>
@@ -28,78 +54,19 @@ import { cfImg, cfSrcset } from '../lib/img';
 						<p class="sr sr-delay-2">Select a category to explore our aerial photography portfolio</p>
 					</div>
 					<div class="row">
-						<!-- Powerboat Photos -->
-						<div class="col-lg-4 col-md-6 sr sr-delay-1" style="margin-bottom: 30px;">
-							<a href="/portfolio-powerboats" style="display: block; text-decoration: none; color: inherit;">
-								<div class="portfolio-card" style="position: relative; overflow: hidden;">
-									<img src={cfImg('images/portfolio/featured-images/pb-pertye-1.jpg', { w: 640 })} alt="Powerboats" width="640" height="480" loading="lazy" decoding="async" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block;">
-									<div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 25px; text-align: center; background: linear-gradient(transparent, rgba(0,0,0,0.75));">
-										<h3 style="color: #fff; margin: 0 0 5px; font-family: var(--headings-font); font-size: 1.5rem;">Powerboats</h3>
-										<span style="color: rgba(255,255,255,0.8); font-size: 14px;">High-performance boats on the Chesapeake</span>
+						{categories.map((cat, i) => (
+							<div class={`col-lg-4 col-md-6 sr sr-delay-${i + 1}`} style="margin-bottom: 30px;">
+								<a href={`/portfolio-${cat.slug}`} style="display: block; text-decoration: none; color: inherit;">
+									<div class="portfolio-card" style="position: relative; overflow: hidden;">
+										<img src={cfImg(cat.thumbnail!.r2_key, { w: 640 })} srcset={cfSrcset(cat.thumbnail!.r2_key, { widths: [320, 480, 640] })} sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw" alt={cat.name} width="640" height="480" loading="lazy" decoding="async" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block;">
+										<div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 25px; text-align: center; background: linear-gradient(transparent, rgba(0,0,0,0.75));">
+											<h3 style="color: #fff; margin: 0 0 5px; font-family: var(--headings-font); font-size: 1.5rem;">{cat.name}</h3>
+											<span style="color: rgba(255,255,255,0.8); font-size: 14px;">{cat.subtitle}</span>
+										</div>
 									</div>
-								</div>
-							</a>
-						</div>
-						<!-- Sportfishing Photos -->
-						<div class="col-lg-4 col-md-6 sr sr-delay-2" style="margin-bottom: 30px;">
-							<a href="/portfolio-sportfishing" style="display: block; text-decoration: none; color: inherit;">
-								<div class="portfolio-card" style="position: relative; overflow: hidden;">
-									<img src={cfImg('images/portfolio/featured-images/sf-wmo-1.jpg', { w: 640 })} alt="Sportfishing" width="640" height="480" loading="lazy" decoding="async" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block;">
-									<div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 25px; text-align: center; background: linear-gradient(transparent, rgba(0,0,0,0.75));">
-										<h3 style="color: #fff; margin: 0 0 5px; font-family: var(--headings-font); font-size: 1.5rem;">Sportfishing</h3>
-										<span style="color: rgba(255,255,255,0.8); font-size: 14px;">Offshore action and tournament coverage</span>
-									</div>
-								</div>
-							</a>
-						</div>
-						<!-- Local Businesses -->
-						<div class="col-lg-4 col-md-6 sr sr-delay-3" style="margin-bottom: 30px;">
-							<a href="/portfolio-local-business" style="display: block; text-decoration: none; color: inherit;">
-								<div class="portfolio-card" style="position: relative; overflow: hidden;">
-									<img src={cfImg('images/portfolio/featured-images/biz-nicks-1.jpg', { w: 640 })} alt="Local Businesses" width="640" height="480" loading="lazy" decoding="async" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block;">
-									<div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 25px; text-align: center; background: linear-gradient(transparent, rgba(0,0,0,0.75));">
-										<h3 style="color: #fff; margin: 0 0 5px; font-family: var(--headings-font); font-size: 1.5rem;">Local Businesses</h3>
-										<span style="color: rgba(255,255,255,0.8); font-size: 14px;">Aerial views that put local brands on the map</span>
-									</div>
-								</div>
-							</a>
-						</div>
-						<!-- Construction -->
-						<div class="col-lg-4 col-md-6 sr sr-delay-4" style="margin-bottom: 30px;">
-							<a href="/portfolio-construction" style="display: block; text-decoration: none; color: inherit;">
-								<div class="portfolio-card" style="position: relative; overflow: hidden;">
-									<img src={cfImg('images/portfolio/featured-images/con-crane-1.jpg', { w: 640 })} alt="Construction" width="640" height="480" loading="lazy" decoding="async" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block;">
-									<div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 25px; text-align: center; background: linear-gradient(transparent, rgba(0,0,0,0.75));">
-										<h3 style="color: #fff; margin: 0 0 5px; font-family: var(--headings-font); font-size: 1.5rem;">Construction</h3>
-										<span style="color: rgba(255,255,255,0.8); font-size: 14px;">Documenting progress from above</span>
-									</div>
-								</div>
-							</a>
-						</div>
-						<!-- Real Estate -->
-						<div class="col-lg-4 col-md-6 sr sr-delay-5" style="margin-bottom: 30px;">
-							<a href="/portfolio-realestate" style="display: block; text-decoration: none; color: inherit;">
-								<div class="portfolio-card" style="position: relative; overflow: hidden;">
-									<img src={cfImg('images/portfolio/featured-images/re-waterfront-1.jpg', { w: 640 })} alt="Real Estate" width="640" height="480" loading="lazy" decoding="async" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block;">
-									<div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 25px; text-align: center; background: linear-gradient(transparent, rgba(0,0,0,0.75));">
-										<h3 style="color: #fff; margin: 0 0 5px; font-family: var(--headings-font); font-size: 1.5rem;">Real Estate</h3>
-										<span style="color: rgba(255,255,255,0.8); font-size: 14px;">Stunning property aerials that sell</span>
-									</div>
-								</div>
-							</a>
-						</div>
-						<!-- Events -->
-						<div class="col-lg-4 col-md-6 sr sr-delay-6" style="margin-bottom: 30px;">
-							<a href="/portfolio-events" style="display: block; text-decoration: none; color: inherit;">
-								<div class="portfolio-card" style="position: relative; overflow: hidden;">
-									<img src={cfImg('images/portfolio/featured-images/ev-carshow-1.jpg', { w: 640 })} alt="Events" width="640" height="480" loading="lazy" decoding="async" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block;">
-									<div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 25px; text-align: center; background: linear-gradient(transparent, rgba(0,0,0,0.75));">
-										<h3 style="color: #fff; margin: 0 0 5px; font-family: var(--headings-font); font-size: 1.5rem;">Events</h3>
-										<span style="color: rgba(255,255,255,0.8); font-size: 14px;">Car shows, boat rallies, and community gatherings</span>
-									</div>
-								</div>
-							</a>
-						</div>
+								</a>
+							</div>
+						))}
 					</div>
 				</div>
 			</div>
@@ -121,5 +88,4 @@ import { cfImg, cfSrcset } from '../lib/img';
 			<!-- /CTA SECTION -->
 		</div>
 		<!-- /WRAP CONTENT -->
-		<!-- FOOTER -->
 </Base>

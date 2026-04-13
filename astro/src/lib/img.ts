@@ -3,18 +3,21 @@ const PREFIX = 'aerialoptic';
 
 /**
  * Generate a Cloudflare Image Transformation URL.
- * Input: a path like "/images/home/slider-1.jpg" or "images/home/slider-1.jpg"
- * Output: https://cdn.aerialoptic.net/cdn-cgi/image/format=auto,width=1920/aerialoptic/images/home/slider-1.jpg
+ * Accepts local paths ("images/home/slider-1.jpg") or R2 keys ("aerialoptic/images/...").
  */
 export function cfImg(
   src: string,
   opts?: { w?: number; q?: number },
 ): string {
-  const path = src.startsWith('/') ? src.slice(1) : src;
+  let path = src.startsWith('/') ? src.slice(1) : src;
+  // R2 keys from D1 may use the legacy prefix or the new sites/ prefix
+  if (!path.startsWith(PREFIX + '/') && !path.startsWith('sites/')) {
+    path = `${PREFIX}/${path}`;
+  }
   const params = ['format=auto'];
   if (opts?.w) params.push(`width=${opts.w}`);
   if (opts?.q) params.push(`quality=${opts.q}`);
-  return `${CDN}/cdn-cgi/image/${params.join(',')}/${PREFIX}/${path}`;
+  return `${CDN}/cdn-cgi/image/${params.join(',')}/${path}`;
 }
 
 /**

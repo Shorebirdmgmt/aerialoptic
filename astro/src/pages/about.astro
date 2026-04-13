@@ -2,10 +2,10 @@
 import Base from '../layouts/Base.astro';
 import { cfImg, cfSrcset } from '../lib/img';
 ---
-<Base title="About — Aerial Optic" description="Learn about Aerial Optic — FAA Part 107 certified drone photography and videography based in Kingsville, Maryland." currentPage="about" heroPreload={cfSrcset('images/home/hero-about.jpg')} ogImage={cfImg('images/home/hero-about.jpg', { w: 1200, q: 80 })}>
+<Base title="About Aerial Optic | FAA Part 107 Drone Pilot in Maryland" description="Learn about Aerial Optic — FAA Part 107 certified drone photography and videography based in Kingsville, Maryland." currentPage="about" heroPreload={cfSrcset('images/home/hero-about.jpg')} ogImage={cfImg('images/home/hero-about.jpg', { w: 1200, q: 80 })}>
 		<!-- /HEADER -->
 		<!-- PAGE HERO -->
-		<div class="top-single-bkg hero-dark" style="height: 50vh; position: relative; overflow: hidden;">
+		<div class="top-single-bkg hero-dark" style="height: 65vh;">
 			<div class="topsingleimg">
 				<img src={cfImg('images/home/hero-about.jpg', { w: 1920 })} srcset={cfSrcset('images/home/hero-about.jpg')} sizes="100vw" alt="About Aerial Optic" width="1920" height="1080" loading="eager" fetchpriority="high" decoding="async" style="position: relative !important; object-position: center center !important;">
 			</div>

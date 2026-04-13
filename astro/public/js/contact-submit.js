@@ -54,7 +54,7 @@
       var fd = new FormData(form);
       var payload = {
         org_id: ORG_ID,
-        notify_email: 'Aerialoptic1@outlook.com',
+        notify_email: 'aerialoptic1@outlook.com',
         thankyou_email: 'bradley@aerialoptic.net',
       };
       fd.forEach(function (value, key) {

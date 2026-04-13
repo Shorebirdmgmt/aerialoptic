@@ -2,3 +2,10 @@
 Thumbs.db
 node_modules/
 .env
+
+# Dev screenshots and debug artifacts
+*.jpeg
+*.png
+!astro/public/**
+.playwright-mcp/
+.codex/
